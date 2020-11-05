@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html >    
+<head>
+  <meta charset="UTF-8">
+  <title>diabetes prediction</title>
+  
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+.login{
+top:100%;
+}
+body{
+  background-image: url('https://news.yale.edu/sites/default/files/styles/featured_media/public/adobestock_276205639.jpeg?itok=PjcxEgaC&c=07307e7d6a991172b9f808eb83b18804');
+  background_repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+* {box-sizing: border-box;}
+.matter{
+font-size: 20px;
+color:blue;
+font-family: Arial, Helvetica, sans-serif;
+}
+label { 
+        float: left;
+        color:black; 
+         display: inline-block;
+          width: 160px;
+           text-align: left;
+        }        
+ input{
+    color: black;
+    font-weight: bold;
+    background: lightblue;
+}   
+.form-inline {  
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+}
+
+.form-inline label {
+  margin: 5px 10px 5px 0;
+}
+
+.form-inline input {
+  vertical-align: middle;
+  margin: 5px 10px 5px 0;
+  padding: 10px;
+  width: 77px;
+  height: 40px;
+  background-color: lightblue;
+  border: 1px solid #ddd;
+}
+  .form-inline select {
+  vertical-align: middle;
+  margin: 5px 10px 5px 0;
+  padding: 10px;
+  background-color: lightblue;
+  border: 1px solid #ddd;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: dodgerblue;
+  border: 1px solid #ddd;
+  color: white;
+  cursor: pointer;
+  position:relative;
+  left:380px;
+}
+
+.form-inline button:hover {
+  background-color: royalblue;
+}       
+
+</style>
+</head>
+
+<body>
+ <div class="login">
+ <div class="matter">
+	<h1 style="color:blue;">Diabetes Mellitus Prediction</h1>
+    <p style="color:black;">Diabetes mellitus (DM), commonly known as diabetes, is a group of metabolic disorders characterized by a high blood sugar level over a prolonged period of time. If left untreated, diabetes can cause many complications. Acute complications can include diabetic ketoacidosis, hyperosmolar hyperglycemic state, or death. Serious long-term complications include cardiovascular disease, stroke, chronic kidney disease, foot ulcers, damage to the nerves, damage to the eyes and cognitive impairment.
+     Diabetes is due to either the pancreas not producing enough insulin, or the cells of the body not responding properly to the insulin produced.</p>
+  
+ <p style="color:black;">
+   Polyuria:Polyuria is the term that’s used when      you’re passing more urine than normal.</p>
+ <p style="color:black;">
+   Polydipsia:Polydipsia is the word used to describe excessive thirst. If you’re experiencing polydipsia, you may feel thirsty all of the time or have persistent dry mouth.</p>
+  <p style="color:black;"> sudden weight loss:Unexplained weight loss is a decrease in body weight, when you did not try to lose the weight on your own. </p>
+  <p style="color:black;"> weakness:Weakness is a decrease in the strength,tiredness,lack of energy.</p>
+ <p style="color:black;">  Polyphagia:Polyphagia describes excessive hunger. Although we may all feel an increase in appetite in certain situations — such as after exercise.</p>
+ <p style="color:black;">  visual blurring:Blurred vision refers to a lack of sharpness of vision resulting in the inability to see fine detail.</p>
+   <p style="color:black;"> Irritability:feel irritable for a variety of reasons.</p>
+ <p style="color:black;">  partial paresis:Paresis refers to a condition in which muscle movement has become weakened.</p>
+   <p style="color:black;">  Alopecia:it causes air fall.</p>
+
+  <p style="color:black;"> This Technique predict whether an individual has diabetes or not based on the factors that are given as input.</p>
+  </p>
+  </div>
+  <div class="input">
+  <h3 style="color:black;">Enter the  below details:</h3>
+    <form  action="{{ url_for('y_predict')}}"method="post">
+           <div class="form-inline">
+    	     <label for="Age" >Age:</label><input type="number" name="Age" placeholder="Age" required="required" /><br><br>
+             <label for="Gender" >Gender:</label><select name="Gender" id="Gender"><option value=''>select</option><option value=1>male</option><option value=0>female</option></select><br><br>
+		   </div>
+		 <div class="form-inline">  
+		<label for="Polyuria" >polyuria:</label><select name="Polyuria" id="Polyuria"><option value=''>select</option><option value=1>yes</option><option value=0>no</option></select><br><br>
+        <label for="Polydipsia" >Polydipsia:</label><select name="Polydipsia" id="Polydipsia"><option value=''>select</option><option value=1>yes</option><option value=0>no</option></select><br><br>
+        </div>
+        <div class="form-inline">
+        <label for="sudden weight loss" >sudden weight loss:</label><select name="sudden weight loss" id="sudden weight loss"><option value=''>select</option><option value=1>yes</option><option value=0>no</option></select><br><br>
+        <label for="weakness" >weakness:</label><select name="weakness" id="weakness"><option value=''>select</option><option value=1>yes</option><option value=0>no</option></select><br><br>
+        </div>
+        <div class="form-inline">
+        <label for="Polyphagia" >polyphagia:</label><select name="Polyphagia" id="Polyphagia"><option value=''>select</option><option value=1>yes</option><option value=0>no</option></select><br><br>
+        <label for="visual blurring" >visual blurring:</label><select name="visual blurring" id="visual blurring"><option value=''>select</option><option value=1>yes</option><option value=0>no</option></select><br><br>
+        </div>
+        <div class="form-inline">
+        <label for="Irritability" >Irritability:</label><select name="Irritability" id="Irritability"><option value=''>select</option><option value=1>yes</option><option value=0>no</option></select><br><br>
+        <label for="partial paresis" >partial paresis:</label><select name="partial paresis" id="partial paresis"><option value=''>select</option><option value=1>yes</option><option value=0>no</option></select><br><br>
+        </div>
+        <div class="form-inline">
+        <label for="Alopecia" >Alopecia:</label><select name="Alopecia" id="Alopecia"><option value=''>select</option><option value=1>yes</option><option value=0>no</option></select><br><br>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button><br>
+    </form>
+    <br>
+   <br>
+  </div> 
+ 
+</body>
+</html> 
